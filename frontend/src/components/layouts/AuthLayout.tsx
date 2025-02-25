@@ -21,7 +21,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
 
       <div className="hidden md:block w-[40vw] h-screen bg-blue-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center overflow-hidden p-8 relative">
         <div className="w-48 h-48 rounded-[40px] bg-blue-600 absolute -top-7 -left-8"></div>
-        <div className="w-48 h-56 rounded-[40px] border-blue-300 border-[20px] absolute top-[38%] -right-10"></div>
+        <div className="w-48 h-80 rounded-[40px] border-blue-300 border-[20px] absolute top-[28%] -right-8"></div>
         <div className="w-48 h-48 rounded-[40px] bg-blue-600 absolute -bottom-7 -left-8"></div>
 
         <div className="grid grid-cols-1 z-20">

@@ -27,7 +27,7 @@ const Input = ({
   };
 
   return (
-    <>
+    <div>
       <label htmlFor={id} className="text-[13px] text-slate-800">
         {label}
       </label>
@@ -53,7 +53,7 @@ const Input = ({
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 export default Input;
