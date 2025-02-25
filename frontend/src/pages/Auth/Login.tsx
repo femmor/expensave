@@ -1,17 +1,31 @@
 import { FormEvent, useState } from "react"
 import { AuthLayout, Button, Input } from "../../components"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { validateEmail } from "../../utils/helper"
+import { MdOutlineErrorOutline } from "react-icons/md";
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
-
-  const navigate = useNavigate()
+  const [error, setError] = useState<string | null>(null)
 
   // Handles form submission
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault()
+
+    // Validation
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address")
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters")
+      return;
+    }
+
+    setError("")
   }
 
   return (
@@ -41,7 +55,9 @@ const Login = () => {
               placeholder="Enter Password (min 8 characters)"
             />
 
-            {error && <p className="">{error}</p>}
+            {error && <p className="text-xs mb-2 text-red-400 flex items-center justify-center bg-red-50 py-1 rounded">
+              <MdOutlineErrorOutline className="text-red-400 text-[26px] mr-1"/> {error}
+               </p>}
 
             <Button type="submit" className="btn-primary">Login</Button>
 
